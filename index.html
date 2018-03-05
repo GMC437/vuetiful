@@ -4,7 +4,8 @@
     </head>
     <body>
         <div id="root" >
-            <h1>{{name}}</h1>
+            <h1 v-if="heading" >{{name}}</h1>
+            <h1 v-else>Above h1 is hidden</h1>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -13,6 +14,7 @@
         el: "#root",
         data: {
             name: "Hi",
+            heading: false
         }
         });
     </script>
