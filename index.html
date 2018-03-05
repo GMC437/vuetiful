@@ -7,8 +7,8 @@
             <form v-on:submit.prevent="submitHandle" >
                 <button>Submit</button>
             </form>
-            <li v-for="i in 11" >
-                {{ i }} X 4 = {{ i * 4 }}.
+            <li v-for="currentName, index in names" >
+                {{index}}: {{ currentName.name }}
             </li>
         </div>
     </body>
@@ -17,7 +17,11 @@
         var App = new Vue({
             el: "#root",
             data: {
-                message: "Hi"
+                names: [
+                    { name: "Peter" },
+                    { name: "Tony" },
+                    { name: "Steve" }
+                ]
             },
             methods: {
                 submitHandle: function () {
