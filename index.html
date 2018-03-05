@@ -4,18 +4,23 @@
     </head>
     <body>
         <div id="root" >
-            <h1 v-if="heading" >{{name}}</h1>
-            <h1 v-else>Above h1 is hidden</h1>
+            <form v-on:submit.prevent="submitHandle" >
+                <button>Submit</button>
+            </form>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script type="text/javascript" >
         var App = new Vue({
-        el: "#root",
-        data: {
-            name: "Hi",
-            heading: false
-        }
+            el: "#root",
+            data: {
+                message: "Hi"
+            },
+            methods: {
+                submitHandle: function () {
+                    alert(1);
+                }
+            }
         });
     </script>
 </html>
