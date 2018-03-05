@@ -4,16 +4,30 @@
     </head>
     <body>
         <div id="root" >
-            <h1>{{name}}</h1>
+            <form v-on:submit.prevent="submitHandle" >
+                <button>Submit</button>
+            </form>
+            <li v-for="currentName, index in names" >
+                {{index}}: {{ currentName.name }}
+            </li>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script type="text/javascript" >
         var App = new Vue({
-        el: "#root",
-        data: {
-            name: "Hi",
-        }
+            el: "#root",
+            data: {
+                names: [
+                    { name: "Peter" },
+                    { name: "Tony" },
+                    { name: "Steve" }
+                ]
+            },
+            methods: {
+                submitHandle: function () {
+                    alert(1);
+                }
+            }
         });
     </script>
 </html>
