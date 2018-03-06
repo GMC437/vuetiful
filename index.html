@@ -4,34 +4,33 @@
     </head>
     <body>
         <div id="root" >
-            <h1>{{ message }}</h1> <input v-model="message">
-            <form v-on:submit.prevent="submitHandle" >
-                <button>Submit</button>
-            </form>
-            <li v-for="currentName, index in names" >
-                {{index}}: {{ currentName.name }}
-            </li>
-            <span v-bind:class="className" ></span>
+            <hello :alert="alert" message="Cool website bro" ></hello>
         </div>
+        <template id="hello-world" >
+            <div>
+                <h1>Hello World!</h1>
+				<p>
+                {{message}}
+                </p>
+                <button v-on:click="alert" >Click Me</button>
+            </div>
+        </template> 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script type="text/javascript" >
+        Vue.component("hello",{
+            template: "#hello-world",
+            props: ["message", "alert"]
+        });
+        
         var App = new Vue({
             el: "#root",
-            data: {
-                message: "Hi",
-                className: "span-class",
-                names: [
-                    { name: "Peter" },
-                    { name: "Tony" },
-                    { name: "Steve" }
-                ]
-            },
             methods: {
-                submitHandle: function () {
+                alert: function () {
                     alert(1);
                 }
             }
         });
+    
     </script>
 </html>
