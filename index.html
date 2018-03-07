@@ -4,33 +4,10 @@
     </head>
     <body>
         <div id="root" >
-            <hello :alert="alert" message="Cool website bro" ></hello>
+            
         </div>
-        <template id="hello-world" >
-            <div>
-                <h1>Hello World!</h1>
-				<p>
-                {{message}}
-                </p>
-                <button v-on:click="alert" >Click Me</button>
-            </div>
-        </template> 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-    <script type="text/javascript" >
-        Vue.component("hello",{
-            template: "#hello-world",
-            props: ["message", "alert"]
-        });
-        
-        var App = new Vue({
-            el: "#root",
-            methods: {
-                alert: function () {
-                    alert(1);
-                }
-            }
-        });
-    
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.js"></script>
+    <script type="text/javascript" src="app.js" ></script>
 </html>
