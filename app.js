@@ -1,14 +1,30 @@
 'use strict';
 const store = new Vuex.Store({
-    state: {
-        count: 0
-    },
-    mutations: {
-        increment (state) {
-            state.count++
-        }
-    }
+	state: {
+		songs: [{
+				name: " Despacito "
+			},
+			{
+				name: " Will You! "
+			},
+			{
+				name: " You are not alone ! "
+			},
+		]
+	},
+	getters: {
+		getAllSongs: state => {
+			return state.songs;
+		}
+	},
+	mutations: {
+		addSong: function (state, name) {
+			console.log(`Will add a song called ${name}`);
+		}
+	},
+	actions: {
+		addSong: function (context) {
+			context.commit(" addSong ", " Rock Star ");
+		}
+	}
 });
-
-store.commit('increment');
-console.log(store.state.count);
