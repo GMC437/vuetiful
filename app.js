@@ -1,4 +1,23 @@
 'use strict';
+Vue.component("task-list", {
+    template: '<div><task v-for="task in tasks">{{task.description}}</task></div>',
+    data: function() {
+        return {
+            tasks: [
+                { description: "Go for walk", completed: true},
+                { description: "Clean room", completed: false},
+                { description: "Cook dinner", completed: false},
+                { description: "Read book", completed: true},
+                { description: "Check emails", completed: false}
+            ]
+        }
+    }
+});
+
+Vue.component("task", {
+   template: "<li><slot></slot></li>" 
+});
+
 new Vue ({
     el: "#root",
     data: {
@@ -33,34 +52,4 @@ new Vue ({
             this.tmp = true;
         }
     }
-}) 
-
-const store = new Vuex.Store({
-	state: {
-		songs: [{
-				name: " Despacito "
-			},
-			{
-				name: " Will You! "
-			},
-			{
-				name: " You are not alone ! "
-			},
-		]
-	},
-	getters: {
-		getAllSongs: state => {
-			return state.songs;
-		}
-	},
-	mutations: {
-		addSong: function (state, name) {
-			console.log(`Will add a song called ${name}`);
-		}
-	},
-	actions: {
-		addSong: function (context) {
-			context.commit(" addSong ", " Rock Star ");
-		}
-	}
-});
+})
