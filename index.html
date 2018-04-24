@@ -1,13 +1,41 @@
 <html>
     <head>
         <title>Vuetiful</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
     <body>
         <div id="root" >
+            <h1 :class="{ 'blue': tmp }" @click="toggleVar" >
+                Names
+            </h1>
+            <div>
+                {{names}}
+                {{reversedMessage}}
+            </div>
+            <input type="text" v-model="newName" />
+            <button  @click="addName" :title="title" >
+                Add name
+            </button>
+            <button :class="{ 'red-style': tmp }" @click="toggleVar" >
+                Color
+            </button>
+            <div>
+                All Tasks
+                <ul>
+                    <li v-for="task in tasks" v-text="task.description"></li>
+                </ul>
+            </div>
+            <div>
+                Incomplete Tasks
+                <ul>
+                    <li v-for="task in incompleteTasks" v-text="task.description"></li>
+                </ul>
+            </div>
             
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.js"></script>
     <script type="text/javascript" src="app.js" ></script>
+    
 </html>
