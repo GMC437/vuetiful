@@ -5,6 +5,13 @@
     </head>
     <body>
         <div id="root" >
+            <progress-view inline-template>
+                <div>
+                    <h2>current progress: {{ completionRate }}&#37;</h2>
+                    <p><button @click="completionRate += 10">Update</button></p>
+                </div>
+                
+            </progress-view>
             <h1 :class="{ 'blue': tmp }" @click="toggleVar" >
                 Names
             </h1>

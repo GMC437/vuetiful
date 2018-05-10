@@ -1,4 +1,10 @@
 'use strict';
+Vue.component("progress-view", {
+    data: function() {
+        return { completionRate: 50 };
+    }    
+})
+
 Vue.component("task-list", {
     template: '<div><task v-for="task in tasks">{{task.description}}</task></div>',
     data: function() {
